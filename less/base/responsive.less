@@ -1,0 +1,94 @@
+// ==========================================================================
+// Responsive Design: Media Queries and Utilities
+// ==========================================================================
+
+// Media Query:
+// 1200px Minimum Width Viewports (Desktop)
+// ==================================================
+
+@media (min-width: 1200px) {
+	/* Style adjustments for viewports that meet the condition */
+}
+
+
+
+// Media Query:
+// 768px - 979px Viewports (Tablet / Small Monitor Desktop)
+// ==================================================
+
+@media (min-width: 768px) and (max-width: 979px) {
+	/* Style adjustments for viewports that meet the condition */
+}
+
+
+
+// Media Query:
+// 767px Maximum Width Viewports (Landscape Phone Orientation)
+// ==================================================
+
+@media (max-width: 767px) {
+	/* Style adjustments for viewports that meet the condition */
+}
+
+
+
+// Media Query:
+// 480px Maximum Width Viewports (Vertical Phone Orientation)
+// ==================================================
+
+@media (max-width: 480px) {
+	/* Style adjustments for viewports that meet the condition */
+}
+
+
+
+// Media Query:
+// Retina Displays & High Resolution Devices
+// ==================================================
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 144dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+
+
+// Responsive: Utility Classes
+// ==================================================
+
+// Visibility Utility For Desktops
+// -------------------------
+
+.visible-phone     { display: none !important; }
+.visible-tablet    { display: none !important; }
+.hidden-phone      { }
+.hidden-tablet     { }
+.hidden-desktop    { display: none !important; }
+.visible-desktop   { display: inherit !important; }
+
+
+// Visibility Utility For Tablets & Small Desktops Only
+// -------------------------
+@media (min-width: 768px) and (max-width: 979px) {
+  // Hide everything else
+  .hidden-desktop    { display: inherit !important; }
+  .visible-desktop   { display: none !important ; }
+  // Show
+  .visible-tablet    { display: inherit !important; }
+  // Hide
+  .hidden-tablet     { display: none !important; }
+}
+
+
+// Visibility Utility For Phones Only
+// -------------------------
+
+@media (max-width: 767px) {
+  // Hide everything else
+  .hidden-desktop    { display: inherit !important; }
+  .visible-desktop   { display: none !important; }
+  // Show
+  .visible-phone     { display: inherit !important; } // Use inherit to restore previous behavior
+  // Hide
+  .hidden-phone      { display: none !important; }
+}

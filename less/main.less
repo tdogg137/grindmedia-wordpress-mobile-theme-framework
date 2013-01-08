@@ -1,0 +1,246 @@
+// ==========================================================================
+// PROJECT SPECIFIC STYLING
+// --------------------------------------------------------------------------
+// Project:		GrindMedia Mobile Wordpress Framework
+// Author:		Jeffrey Mayfield jeff.mayfield@grindmedia.com
+// Author:		Tito To tito@grindmedia.com
+// ==========================================================================
+
+@import "base/foundation";
+
+// LAYOUT & STRUCTURE
+// ==================================================
+
+body {
+	padding-top: 45px;
+	
+	&.home {
+		padding-top: 0;
+	}
+}
+
+.container {
+	margin: 3% 3% 0 3%;
+}
+
+.content {
+	margin-top: 3%; // Creates space for nav element
+}
+
+// HEADER
+// --------------------------------------------------
+// Site Logo, Dropdown Navigation, Etc.
+// ==================================================
+
+.header {
+	position: relative;
+	
+	.site-logo {
+		width: 84%;
+		
+		img {
+			width: 100%;
+			//margin-bottom: @baseLineHeight;
+		}
+	}
+	
+	.menu-button {
+		position: absolute;
+		//margin-bottom: @baseLineHeight;
+		bottom: 0;
+		right: 0;
+	}
+}
+
+
+// MANTLE IMAGE / ARICLE IMAGE
+// ==================================================
+
+.mantle,
+.article-image {
+	display: block;
+	margin-bottom: 3%;
+	text-decoration: none;
+	
+	&:hover {
+		text-decoration: none;
+	}
+	
+	img {
+		width: 100%;
+	}
+	
+	.caption {
+		display: block;
+		
+		p {
+			margin: 0;
+			padding: 2% 3%;
+			color: @white;
+			background-color: @navBackground;
+		}
+	}
+}
+
+// PAGE META
+// ==================================================
+
+.page-meta {
+	margin-bottom: 3%;
+	padding-bottom: 3%;
+	border-bottom: 1px solid @grayLight;
+	
+	h4 {
+		margin-bottom: 0;
+	}
+	
+	span {
+		font-size: @baseFontSize - 2px;
+		line-height: @baseLineHeight - 2px;
+	}
+}
+
+
+// ARTICLES LIST
+// ==================================================
+
+.article-item {
+	position: relative;
+	display: block;
+	margin-bottom: 3%;
+	padding-bottom: 3%;
+	border-bottom: 1px solid @grayLight;
+	text-decoration: none;
+	color: @textColor;
+	
+	&:hover {
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	&:last-of-type {
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+	
+	.meta {
+		font-size: @baseFontSize - 5px;
+		line-height: @baseLineHeight - 5px;
+		padding: 1% 2%;
+		margin-bottom: 2%;
+		background-color: @grayLighter;
+		
+		time {
+			display: inline;
+		}
+	}
+	
+	.article-img {
+		width: 35%;
+		float: left;
+		
+		img {
+			width: 100%;
+		}
+	}
+	
+	.article-title {
+		float: left;
+		width: 55%;
+		margin-left: 2%;
+		
+		h4 {
+			margin: 0;
+		}
+	}
+	
+	.tap-right {
+		position: absolute;
+		right: 0;
+		top: 45%;
+		width: 4%;
+		
+		img {
+			width: 100%;
+		}
+	}
+}
+
+
+// ARTICLE
+// ==================================================
+
+article {
+	
+	header {
+		margin-bottom: 3%;
+		padding-bottom: 3%;
+		border-bottom: 1px solid @grayLight;
+		
+		h3 {
+			margin: 3% 0;
+			line-height: 25px;
+		}
+		
+		span {
+			display: block;
+		}
+	}
+}
+
+
+// IMAGE GALLERY
+// ==================================================
+
+.img-gallery {
+
+	.btn-row {
+		margin-bottom: 3%;
+		
+		.btn {
+			width: 15%;
+		}
+	}
+	
+	.gallery-all {
+		margin-bottom: 3%;
+	
+		.gallery-grid-img {
+			float: left;
+			width: 48.5%;
+			margin: 0 3% 3% 0;
+			
+			&:nth-of-type(2n) {
+				margin-right: 0;
+			}
+				
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+// FOOTER
+// ==================================================
+
+footer {
+	padding: 3%;
+	text-align: center;
+	border-top: 1px solid @grayLight;
+	background: @footerBackground;
+	font-size: @baseFontSize - 3px;
+	line-height: @baseLineHeight - 3px;
+	
+	a {
+		text-transform: uppercase;
+		color: @footerLinkColor;
+	}
+	
+	.copyright a {
+		font-size: @baseFontSize - 6px;
+		line-height: @baseLineHeight - 6px;
+		color: @grayLight;
+	}
+}

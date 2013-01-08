@@ -1,0 +1,123 @@
+// ==========================================================================
+// Nav Styles
+// --------------------------------------------------------------------------
+// Used in conjunction with jQuery Flexnav Plugin
+// https://github.com/indyplanets/flexnav
+// ==========================================================================
+
+// DROPDOWN NAVIGATION
+// ==================================================
+
+[role='navigation'] {
+	margin: 0 auto;
+	width: 100%;
+	background-color: @navBackground;
+}
+
+.flexNav-touch [role='navigation'],
+.flexNav-no-touch [role='navigation'] {
+	display: none;
+}
+
+.menu-button {
+	display: block;
+	padding: 4%;
+	width: 1em;
+	height: 1em;
+	background-color: @navBackground;
+	background-image: url('../images/flexnav/nav_collapsed.png');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	cursor: pointer;
+	
+	&.menu-opened {
+		background-image: url('../images/flexnav/nav_open.png') !important;
+	}
+}
+
+
+[role='navigation'] {
+	padding: @baseLineHeight / 2 0 @baseLineHeight / 2 0;
+	
+	&:after { /* clearfix */
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+	}
+	
+	li {
+		position: relative;
+		list-style: none;
+		display: block;
+		background-color: @navBackground;
+		width: 100%;
+		
+		a {
+			display: block;
+			color: @white;
+			text-transform: uppercase;
+			
+			&:hover {
+				background-color: @navLinkHoverBackground;
+				text-decoration: none;
+			}
+		}
+		
+		form {
+			padding: 1em;
+			margin: 0;
+		
+			&:hover {
+				background-color: @navLinkHoverBackground;
+			}
+			
+			input {
+				width: 60%;
+			}
+			
+			button {
+				width: 30%;
+			}
+		}
+	}
+	
+	.top-level a {
+		position: relative;
+		display: block;
+		background-color: @navBackground;
+		padding: 1em;
+		z-index: 2;
+	}
+}
+
+
+// FIXED TOP NAVIGATION
+// ==================================================
+
+.navbar-fixed {
+	z-index: 1000;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	background-color: @navBackground;
+	border-bottom: 1px solid @gray;
+	
+	p {
+		font-size: @baseFontSize + 2px;
+		margin: 0;
+		padding: 3%;
+		text-align: center;
+		color: @white;
+	}
+	
+	img {
+		opacity: 0.7;
+		
+		&:hover {
+			opacity: 1;
+		}
+	}
+}

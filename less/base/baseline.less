@@ -1,0 +1,63 @@
+// ==========================================================================
+// Baseline Styles
+// ==========================================================================
+
+html,
+button,
+input,
+select,
+textarea {
+    color: @textColor;
+}
+
+body {
+	margin: 0;
+	font-family: @baseFontFamily;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	color: @textColor;
+	background: @bodyBackground;
+}
+
+a {
+	color: @linkColor;
+	text-decoration: none;
+}
+
+a:hover {
+	color: @linkColorHover;
+	text-decoration: underline;
+}
+
+::-moz-selection {
+    background: lighten(@linkColor,35%);
+    text-shadow: none;
+}
+
+::selection {
+    background: lighten(@linkColor,35%);
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid @grayLight;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
