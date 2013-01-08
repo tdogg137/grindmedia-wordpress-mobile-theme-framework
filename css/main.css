@@ -2686,8 +2686,8 @@ body.home {
 .container {
   margin: 3% 3% 0 3%;
 }
-.content {
-  margin-top: 3%;
+nav {
+  margin-bottom: 3%;
 }
 .header {
   position: relative;
