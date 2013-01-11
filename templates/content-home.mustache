@@ -1,0 +1,21 @@
+{{#data}}
+<!-- ARTICLE ITEM -->
+<a class="article-item" href="{{post_url}}" title="{{post_title}}">
+    <div class="meta">
+        <span><time datetime="{{post_time}}">{{post_date}}</time> | {{post_category}}</span>
+    </div>
+    <div class="article-content clearfix">
+            <div class="article-img">
+                    <img src="{{post_image_url}}" alt="{{post_title}}">
+            </div>
+            <div class="article-title">
+                    <h4>{{post_title}}</h4>
+            </div>
+            <div class="tap-right"><img src="wp-content/themes/core_framework/images/arrow-right.png"></div>
+    </div>
+</a>
+<!-- / ARTICLE ITEM -->
+{{/data}}
+{{^data}}
+	<div class="alert alert-error">No data :(</div>
+{{/data}}

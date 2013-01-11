@@ -8,21 +8,29 @@
 
 // Implement jQuery Flexnav
 // --------------------------------------------------------------------------
+jQuery.noConflict();
+(function($) {
+  $(function() {
+        $("[role='navigation']").flexNav();
+        
+        // Gets Domain
+        var s = location.hostname.split('.');
+        var domain = s[s.length-2]+'.'+s[s.length-1];
 
-$("[role='navigation']").flexNav();
+        // Modifies External Links To Open In A New Window
+        $('a').filter(function() {
+                if (this.hostname) {
+                        var t = this.hostname.split('.');
+                        var test = t[t.length-2]+'.'+t[t.length-1];
+                        if (test != domain)
+                        return true;
+                        else
+                        return false;
+                }
+        }).attr('target', '_blank');
+  });
+})(jQuery);
 
-// Gets Domain
-var s = location.hostname.split('.');
-var domain = s[s.length-2]+'.'+s[s.length-1];
+// other code using $ as an alias to the other library
 
-// Modifies External Links To Open In A New Window
-$('a').filter(function() {
-        if (this.hostname) {
-                var t = this.hostname.split('.');
-                var test = t[t.length-2]+'.'+t[t.length-1];
-                if (test != domain)
-                return true;
-                else
-                return false;
-        }
-}).attr('target', '_blank');
+
