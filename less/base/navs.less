@@ -12,6 +12,7 @@
 	margin: 0 auto;
 	width: 100%;
 	background-color: @navBackground;
+        display: none;
 }
 
 .flexNav-touch [role='navigation'],
@@ -21,17 +22,22 @@
 
 .menu-button {
 	display: block;
+	clear: left;
 	padding: 4%;
-	width: 1em;
+	width: 42%;
 	height: 1em;
+	color: @grayLighter;
+	font-size: 1em;
+	line-height: 1em;
+	text-transform: uppercase;
 	background-color: @navBackground;
-	background-image: url('../images/flexnav/nav_collapsed.png');
+	//background-image: url('../images/flexnav/nav_collapsed2.png');
 	background-repeat: no-repeat;
-	background-position: 50% 50%;
+	background-position: 90% 50%;
 	cursor: pointer;
 	
 	&.menu-opened {
-		background-image: url('../images/flexnav/nav_open.png') !important;
+		//background-image: url('../images/flexnav/nav_open2.png') !important;
 	}
 }
 

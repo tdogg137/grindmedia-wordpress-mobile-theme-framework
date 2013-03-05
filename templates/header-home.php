@@ -1,19 +1,24 @@
-<!DOCTYPE html>
+<?php echo get_template_part('templates/meta'); ?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <title><?php echo SITE_TITLE; ?></title>
+        <meta name="description" content="<?php echo SITE_DESC; ?>" />
+        <meta name="keywords" content="<?php echo SITE_KEYWORDS; ?>" />
+        <meta name="viewport" content="width=device-width,user-scalable=no">
 
+        <link rel="canonical" href="<?php echo str_replace('http://m.', 'http://', get_bloginfo('url')).$_SERVER['REQUEST_URI']; ?>" >
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo THEME_URL.'/css/main.css?v='.filemtime( get_stylesheet_directory() . '/css/main.css'); ?>" />
-
+        <link rel="icon" href="<?php echo THEME_URL; ?>/images/favicon.ico" type="image/x-icon" />
+        
+<?php //wp_head(); ?>
+        
         <script src="<?php echo THEME_URL.'/js/libs/mootools/mootools-core-1.4.5-full-nocompat-yc.js' ?>"></script>
         <script src="<?php echo THEME_URL.'/js/libs/mootools/mootools-more-1.4.0.1.js'; ?>"></script>
         <script src="<?php echo THEME_URL.'/js/mustache.js'; ?>"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo THEME_URL.'/js/libs/jquery/jquery-1.8.2.min.js'; ?>"><\/script>')</script>
-        <script src="<?php echo THEME_URL.'/js/libs/jquery-flexnav/jquery-flexnav-0.3.js'; ?>"></script>
+        <script src="<?php echo THEME_URL.'/js/libs/jquery-cookie/jquery-cookie.js'; ?>"></script>
         <script type="text/javascript">
         //domready event  
         window.addEvent('domready',function() {
@@ -25,9 +30,9 @@
                 });
 
                 // initialize variables
-                var start = <?php echo $_SESSION['posts_start']; ?>;
-                var initialPosts = <?php echo grindmedia_get_posts(0,$_SESSION['posts_start']);  ?>;
-                var desiredPosts = <?php echo $GLOBALS['number_of_posts']; ?>;
+                var start = 5;
+                var initialPosts = <?php echo grindmedia_get_posts( array( 'category_name' => $GLOBALS['sect'], 'offset' => 0, 'posts_per_page' => 5) ); ?>;
+                var desiredPosts = 10;
                 // either null or contains the mustache template
                 var template = null;
                 // Widget element
@@ -48,12 +53,13 @@
                 }
                 // create the Bootstrap progress bar element
                 var progressElement = new Element('div', {
-                        'class': '',
-                        'html': '<i class="icon-spinner icon-spin"></i><div class="clearfix"></div>',
+                        'class': 'clearfix',
+                        'html': '<img src="/wp-content/themes/m.bikemag.com/images/loading.gif" />',
                         'styles': {
+                            
                         }
                 });
-                var progressBar = progressElement.getElement('.icon-spinner');
+                var progressBar = progressElement.getElement('.btn');
                 // Create a scroll instance on the widget content
                 // This Class is included in Mootools More
                 var scroll = new Fx.Scroll(content, {
@@ -66,7 +72,7 @@
                         if (!template){
                                 // If not we get it
                                 new Request({
-                                        url: '<?php echo THEME_URL; ?>/templates/content-home.mustache',
+                                        url: '/wp-content/themes/m.bikemag.com/templates/content-home.mustache',
                                         method: 'get',
                                         async: false,
                                         onSuccess: function(responseText){
@@ -132,7 +138,7 @@
                                         // Set the progress bar to 100%
                                         //progressBar.setStyle('width', '100%');
                                         // Remove the more button
-                                        more.dispose.delay(500,more);
+                                        moreContainer.dispose.delay(500,moreContainer);
                                         // remove the empty message after 4 seconds
                                         alerts.requestEmpty.dispose.delay(4000,alerts.requestEmpty);
                                 }
